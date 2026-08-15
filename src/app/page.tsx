@@ -8,7 +8,7 @@ import { writeups } from "@/lib/writeups";
 export default function Home() {
   return (
     <>
-      <section className="border-b border-border bg-bg">
+      <section className="border-b border-border">
         <Container>
           <FadeInSection className="mx-auto flex max-w-2xl flex-col items-center gap-5 py-12 text-center sm:py-16">
             <Image
@@ -74,7 +74,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-border bg-surface py-14 sm:py-20">
+      <section className="border-t border-border py-14 sm:py-20">
         <Container>
           <FadeInSection>
             <h2 className="mb-8 text-2xl font-extrabold text-heading sm:text-3xl">

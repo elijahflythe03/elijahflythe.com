@@ -23,17 +23,28 @@ export default function BinaryRain() {
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    let width = 0;
+    let height = 0;
     let drops: number[] = [];
 
+    // Resizing the canvas element always clears its pixels and resets 2D
+    // context state (font, fillStyle), so ctx.font is re-applied here rather
+    // than every draw() call. The `drops` array is only rebuilt when the
+    // column count actually changes (real width change) - mobile browsers
+    // fire `resize` on every address-bar show/hide during scroll (height
+    // only, ~50-100px), and rebuilding drops on every one of those caused a
+    // visible "reset" glitch mid-scroll.
     function resize() {
       width = window.innerWidth;
       height = window.innerHeight;
       canvas!.width = width;
       canvas!.height = height;
+      ctx!.font = `${FONT_SIZE}px monospace`;
+
       const columns = Math.floor(width / FONT_SIZE);
-      drops = new Array(columns).fill(0).map(() => Math.random() * -50);
+      if (columns !== drops.length) {
+        drops = new Array(columns).fill(0).map(() => Math.random() * -50);
+      }
     }
     resize();
 
@@ -52,7 +63,6 @@ export default function BinaryRain() {
       ctx!.fillStyle = `rgba(${BG_RGB}, ${TRAIL_ALPHA})`;
       ctx!.fillRect(0, 0, width, height);
 
-      ctx!.font = `${FONT_SIZE}px monospace`;
       ctx!.fillStyle = `rgba(${ACCENT_RGB}, ${CHAR_ALPHA})`;
 
       for (let i = 0; i < drops.length; i++) {

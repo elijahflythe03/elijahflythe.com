@@ -45,7 +45,15 @@
       "Bash(node _tmp_verify.js)",
       "Bash(node _tmp_scrolltest.js)",
       "Bash(node _tmp_k2check.js)",
-      "Bash(node _tmp_final.js)"
+      "Bash(node _tmp_final.js)",
+      "Bash(powershell -NoProfile -Command 'Get-ChildItem -Path '\\\\''C:\\\\Users\\\\Elijah'\\\\'' -Recurse -Include *.pdf -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt \\(Get-Date\\).AddMinutes\\(-30\\) } | Select-Object -First 30 FullName,LastWriteTime,Length')",
+      "Bash(cd \"c:\\\\Users\\\\Elijah\\\\Desktop\\\\elijahflythe.com\" && cp \"C:/Users/Elijah/Downloads/elijahflythe2026.pdf\" public/resume.pdf && ls -la public/resume.pdf)",
+      "Bash(node -e \"require.resolve\\('playwright'\\); console.log\\('ok'\\)\")",
+      "Bash(node _tmp_rain_check.js)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Elijah\\Downloads"
     ]
   }
 }
