@@ -50,7 +50,10 @@
       "Bash(cd \"c:\\\\Users\\\\Elijah\\\\Desktop\\\\elijahflythe.com\" && cp \"C:/Users/Elijah/Downloads/elijahflythe2026.pdf\" public/resume.pdf && ls -la public/resume.pdf)",
       "Bash(node -e \"require.resolve\\('playwright'\\); console.log\\('ok'\\)\")",
       "Bash(node _tmp_rain_check.js)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/resume.pdf)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Elijah\\Downloads"

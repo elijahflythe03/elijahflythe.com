@@ -8,7 +8,7 @@ const links = [
   { href: "/experience", label: "Experience" },
   { href: "/writeups", label: "Write-ups" },
   { href: "/projects", label: "Projects" },
-  { href: "/resume", label: "Resume" },
+  { href: "/resume.pdf", label: "Resume", download: true },
 ];
 
 const socials = [
@@ -35,6 +35,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
+              download={link.download}
               className="flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-ink transition-colors hover:bg-accent/15 hover:text-accent"
             >
               {link.label}
@@ -80,6 +81,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
+                download={link.download}
                 onClick={() => setOpen(false)}
                 className="flex min-h-11 items-center rounded-md px-2 text-base font-medium text-ink hover:bg-accent/15 hover:text-accent"
               >
