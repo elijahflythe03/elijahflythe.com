@@ -13,9 +13,9 @@ export default function Home() {
           <FadeInSection className="mx-auto flex max-w-2xl flex-col items-center gap-5 py-12 text-center sm:py-16">
             <Image
               src="/elijah-lilly.jpg"
-              alt="Elijah Flythe standing in front of the Lilly Cybersecurity sign"
-              width={1076}
-              height={1233}
+              alt="Portrait of Elijah Flythe"
+              width={3024}
+              height={4032}
               priority
               className="h-48 w-40 rounded-2xl border border-border object-cover sm:h-56 sm:w-48"
             />
