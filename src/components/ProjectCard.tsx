@@ -5,7 +5,24 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-6">
       <h3 className="text-lg font-bold text-heading">{project.title}</h3>
-      <p className="text-sm leading-relaxed text-muted">{project.description}</p>
+
+      {project.description.map((paragraph) => (
+        <p key={paragraph} className="text-sm leading-relaxed text-muted">
+          {paragraph}
+        </p>
+      ))}
+
+      <div className="flex flex-wrap gap-1.5">
+        {project.tech.map((tech) => (
+          <span
+            key={tech}
+            className="rounded-full bg-bg px-2.5 py-0.5 text-xs font-medium text-muted"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
       {project.badge && (
         <Link
           href={project.badge.href}

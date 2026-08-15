@@ -56,7 +56,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/resume.pdf)",
       "Bash(powershell -NoProfile -Command \"Get-ChildItem -Path 'C:\\\\Users\\\\Elijah\\\\Downloads' -Include *.jpg,*.jpeg,*.png -Recurse -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 10 FullName,LastWriteTime,Length\")",
       "Bash(cd \"c:\\\\Users\\\\Elijah\\\\Desktop\\\\elijahflythe.com\" && cp \"C:\\\\Users\\\\Elijah\\\\Downloads\\\\IMG_2361.jpg\" public/elijah-lilly.jpg && ls -la public/elijah-lilly.jpg)",
-      "Bash(node _tmp_photo_check.js)"
+      "Bash(node _tmp_photo_check.js)",
+      "Bash(node _tmp_projects_check.js)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Elijah\\Downloads"
