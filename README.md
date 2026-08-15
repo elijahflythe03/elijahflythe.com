@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# elijahflythe.com
 
-## Getting Started
+Personal portfolio site for Elijah Flythe — cybersecurity engineer. Built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + TypeScript
+- **Tailwind CSS v4** — brick red / sand theme, defined in [src/app/globals.css](src/app/globals.css)
+- **react-markdown** (+ `remark-gfm`, `rehype-raw`, `rehype-highlight`) — renders write-up Markdown with syntax-highlighted code blocks and responsive images
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/` — routes: `/`, `/about`, `/projects`, `/writeups`, `/writeups/[slug]`
+- `src/components/` — Nav, Footer, cards, badges, timeline, markdown renderer
+- `src/lib/` — data: `writeups.ts`, `projects.ts`, `experience.ts`
+- `src/content/writeups/*.md` — write-up body content (one Markdown file per slug, matched against `src/lib/writeups.ts`)
 
-## Learn More
+### Adding a new write-up
 
-To learn more about Next.js, take a look at the following resources:
+1. Add an entry to the `writeups` array in [src/lib/writeups.ts](src/lib/writeups.ts) (slug, title, platform, difficulty, tags, teaser).
+2. Add `src/content/writeups/<slug>.md` with the write-up body.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The `/writeups` index and `/writeups/[slug]` route pick up new entries automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Resume
 
-## Deploy on Vercel
+`public/resume.pdf` is currently a **placeholder file** — replace it with the real resume PDF (same filename, `public/resume.pdf`) before deploying. The site's "Resume" nav link and homepage download button both point to `/resume.pdf` and need no code changes once the real file is in place.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploying
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a zero-config Next.js project — `vercel deploy` (or connecting the repo in the Vercel dashboard) will detect and build it automatically.
+
+The custom domain (`elijahflythe.com`) is connected via the Vercel dashboard after deploy — no code changes are required for that step, and no domain is hardcoded anywhere in the app.
